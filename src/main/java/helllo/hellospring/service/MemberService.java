@@ -3,9 +3,12 @@ package helllo.hellospring.service;
 import helllo.hellospring.domain.Member;
 import helllo.hellospring.repository.MemberRepository;
 import helllo.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public class MemberService {
 
@@ -14,6 +17,7 @@ public class MemberService {
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+
     public Long join(Member member) {
         validateDuplicatedMember(member);
         memberRepository.save(member);
